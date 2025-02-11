@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome Page</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery-3.7.0.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 2px auto;
+      padding: 5px;
+      background-color: #fff;
+    }
+
+    .column{
+        float: left;
+        width: 33.33%;
+        padding: 4px;
+    }
+    .row::after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center p-3 m-3">Login</h2>
+    <form id="loginForm">
+      <div class="form-group ">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" required>
+
+        <script>
+          document.getElementById("username").addEventListener("input", function() {
+            var input = this.value;
+            var regex = /^[a-zA-Z]+$/; 
+        
+            if (!regex.test(input)) {
+              this.value = input.replace(/[^a-zA-Z]/g, ''); 
+            }
+          });
+        </script>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" required>
+        <input type="checkbox" id="check">
+      </div>
+      <script>
+        check.onclick = togglePassword;
+        function togglePassword()
+        {
+          if (check.checked) password.type = "text";
+          else password.type= "password";
+        }
+      </script>
+
+      <div class="m-1 text-center"><button type="submit" class="btn btn-primary">Login</button></div>
+      <div class="text-center"><a href="#" id="forgotPasswordLink">Forgot Password?</a></div>
+      <div class="text-center"><a href="registrtion.html" id="register">Register</a></div>
+      
+    </form>
+  
+    
+  
+  <div id="welcomeText" style="display: none;" class="container bg-gradient">
+    <form>
+      <label for="Select" class="form-label p-2  m-2"><h5 class="m-2">1 : Choose your course :</h5></label>
+      <select name="sell" id="sell" class="form-select">
+          <option>Computer Science</option>
+          <option>Information Technology</option>
+      </select>
+
+      <label for="Select" class="form-label p-2  m-2"><h5 class="m-2">2 : Choose your subject :</h5></label>
+      <select name="sell1" id="sell1" class="form-select">
+          <option>C</option>
+          <option>Python</option>
+          <option>Java</option>
+      </select>
+
+    <label for="hobby" class="form-label p-2 m-2"><h5 class="m-2">3 : Choose your interests</h5></label>
+    <input class="form-control p-2" list="hobbyy" name="hobby" id="hobby">
+      <datalist id="hobbyy">
+        <option>Playing Cricket</option>
+        <option>Reading Books</option>
+        <option>Watching Movies</option>
+      </datalist>
+  </form>
+    <h5 class="p-2 m-2">4 : Rating for the course</h5>
+    <div class="slider">
+      <label class="slider-label" for="slider1">Computer Applications</label>
+      <input type="range" class="form-range" id="slider1" min="0" max="100" step="1">
+      <p class="slider-value">Rating: <span id="slider1Value">50</span></p>
+    </div>
+
+    <div class="slider">
+      <label class="slider-label" for="slider2">Information Technology</label>
+      <input type="range" class="form-range" id="slider2" min="0" max="100" step="1">
+      <p class="slider-value">Rating: <span id="slider2Value">50</span></p>
+    </div>
+
+    <h5 class="p-2 m-2">5 : My Pictures :</h5>
+    <div class="row">
+        <div class="column"><img src="picture2.jpg" alt="" style="width: 100%; filter:blur(10px);"></div>
+        <div class="column"><img src="picture3.jpeg" alt="" style="width: 100%;"></div>
+        <div class="column"><img src="picture1.jpg" alt="" style="width: 100%;"></div>
+    </div>
+     
+  
+    <h5 class="p-2 m-2">6 : My text :</h5>
+    <div class="container m-2 p-2">
+      <button class="btn btn-warning " data-bs-toggle="collapse" data-bs-target="#click">Click Me</button>
+      <div class="bg-warning collapse"id="click">
+      Lorem ipsum dolor sit amet consectetur adipisicing 
+       Ratione est nisi odit quia perferendis laudantium porro ea quidem ius
+       Maxime labore obcaecati, ut praesentium quaerat nemo suscipit. Soluta,
+       quidem! Dicta itaque sequi unde ipsam, sint impedit corporis quae quo
+       placeat cumque amet quaerat deleniti, eos suscipit. Voluptates aperiam 
+       totam eius, rem veniam veritatis nostrum distinctio.hkljhksklslsllslsl
+       Inventore blanditiis tempora recusandae perspiciatis ,this sh hshs jsj
+       optio hic quod repudiandae reprehenderitptio hic quod repudiandae repr
+       est voluptatem illo vitae ipsam, debitis ducimusptio hic quod repudia
+       assumenda, culpa similique asperiores, repellendus ptio hic quod repu
+       unde error! Consectetur fugit dicta saepe hic, placeat ab voluptatem 
+       itaque non. Atque quidem obcaecati et nesciunt error dolor alias.</div>
+
+</div>
+
+  </div>
+
+  <script>
+    var slider1 = document.getElementById("slider1");
+    var slider1Value = document.getElementById("slider1Value");
+
+    var slider2 = document.getElementById("slider2");
+    var slider2Value = document.getElementById("slider2Value");
+
+    slider1.addEventListener("input", function() {
+      slider1Value.textContent = slider1.value;
+    });
+
+    slider2.addEventListener("input", function() {
+      slider2Value.textContent = slider2.value;
+    });
+  </script>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotPasswordModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Forgot Password</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Enter your email below and we will send you a link to reset your password.</p>
+          <input type="email" class="form-control" id="forgotPasswordEmail" placeholder="Enter your email address">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="resetPasswordBtn">Reset Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // show forgot password modal when it is clicked
+      $("#forgotPasswordLink").click(function() {
+        $("#forgotPasswordModal").modal("show");
+      });
+
+      // for reset
+      $("#resetPasswordBtn").click(function() {
+        var email = $("#forgotPasswordEmail").val();
+        
+        alert("Password reset link sent to: " + email);
+        $("#forgotPasswordModal").modal("hide");
+      });
+     // login
+    $("#loginForm").submit(function(e) {
+        e.preventDefault();
+        var username = $("#username").val();
+        var password = $("#password").val();
+      
+        if (username === "fazil" && password === "1234") {
+        $("#loginForm").hide();
+        $("#welcomeText").show();
+        $("#welcomeText").prepend("Welcome, " + username + "!<br><br>");
+        }else {
+          alert("Incorrect username or password");
+        }
+      
+      });
+    } 
+  );
+    
+  </script>
+
+</body>
+</html>

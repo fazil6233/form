@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div class="container bg-danger-subtle">
+    <h1 class="text-center m-1 ">REGISTER</h1>
+    <form id="myForm">
+      <div class="m-2 p-2">
+        <label for="fname" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" required placeholder="Enter First Name">
+        <script>
+          document.getElementById("fname").addEventListener("input", function() {
+            var input = this.value;
+            var regex = /^[a-zA-Z]+$/;
+        
+            if (!regex.test(input)) {
+              this.value = input.replace(/[^a-zA-Z]/g, ''); 
+            }
+          });
+        </script>
+      </div>
+
+      <div class="p-2 m-2">
+        <label for="Lname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="Lname" required placeholder="Enter Last Name">
+        <script>
+          document.getElementById("Lname").addEventListener("input", function() {
+            var input = this.value;
+            var regex = /^[a-zA-Z]+$/; 
+        
+            if (!regex.test(input)) {
+              this.value = input.replace(/[^a-zA-Z]/g, ''); 
+            }
+          });
+        </script>
+      </div>
+
+      <div class="p-2 m-2">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="Email" required placeholder="Enter your Email">
+      </div>
+
+      <div class="p-2 m-2">
+        <label for="Phone Number" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="PhoneNumber" required placeholder="Enter phone number">
+        <script>
+          document.getElementById("PhoneNumber").addEventListener("input", function() {
+            var input = this.value;
+            var regex = /^[0-9]+$/; 
+        
+            if (!regex.test(input)) {
+              this.value = input.replace(/[^0-9]/g, ''); 
+            }
+          });
+        </script>
+      </div>
+
+      <div class="p-2 m-2">
+        <label for="DOB" class="form-label">DOB</label>
+        <input type="date" class="form-control" id="DOB" required placeholder="10-10-2003">
+    </div>
+
+      <div class="p-2 m-2">
+        <label for="Gender">Gender</label>
+      </div>
+
+      <div class="form-check">
+        <label for="Male" class="form-check-label">Male</label>
+        <input type="radio" class="form-check-input" required name="Gender">
+      </div>
+
+      <div class="form-check">
+        <label for="Female" class="form-check-label">Female</label>
+        <input type="radio" class="form-check-input" required name="Gender">
+      </div>
+
+      <div class="m-2">
+        <button type="submit" class="form-control btn btn-danger">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="successMessage" class="container" style="display: none;">
+    <div class="alert alert-success mt-4">
+      Form submitted successfully!
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("myForm").style.display = "none";
+      document.getElementById("successMessage").style.display = "block";
+    });
+  </script>
+</body>
+</html>
